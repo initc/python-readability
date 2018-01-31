@@ -14,7 +14,7 @@ def parse_summary(filename=None,url=None):
 			html = f.read()
 		n = "content_%s"%os.path.basename(filename)
 	if url:
-		html = request.get(url)
+		html = requests.get(url).text
 		n = "url_content_%s_.html"%hashlib.md5(url.encode("utf-8")).hexdigest()[0:6]
 	doc = Document(html)
 	summary = doc.summary()
